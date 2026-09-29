@@ -33,3 +33,26 @@ int main() {
 
     return 0;
 }
+// https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1193
+
+// 簡潔寫法
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    string s1, s2;
+    while (cin >> s1 >> s2){
+        map <char, int> s;
+        string ans = "";
+        for (auto i : s1) s[i]++;
+        for (auto i : s2){
+            if (s[i] > 0){
+                s[i]--;
+                ans += i;
+            }
+        }
+        sort(ans.begin(), ans.end());
+        cout << ans << '\n';
+    }
+}

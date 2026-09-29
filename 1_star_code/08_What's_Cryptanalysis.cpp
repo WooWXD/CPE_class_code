@@ -31,3 +31,35 @@ int main(){
     }
 }
 //https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=949&mosmsg=Submission+received+with+ID+30743096
+
+// 純 map 解法 -- 把 freq 當作 key
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int n;
+    if (cin >> n) {
+        string s;
+        cin.ignore();
+        map<char, int> freq;
+        while (n--) {
+            getline(cin, s);
+            for (char c : s) {
+                if (isalpha(c)) freq[toupper(c)]++;
+            }
+        }
+        map<int, string, greater<int>> result_map;
+        
+        for (auto const& [letter, count] : freq) {
+            result_map[count] += letter; 
+        }
+        
+        for (auto const& [count, letters] : result_map) {
+            for (char c : letters) {
+                cout << c << " " << count << "\n";
+            }
+        }
+    }
+    return 0;
+}

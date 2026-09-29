@@ -40,3 +40,34 @@ int main() {
 
     return 0;
 }
+
+// ------------------------------------ //
+// bitset
+// 10019 Funny Encryption Method
+#include <iostream>
+#include <bitset>
+
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    while (n--){
+        int m;
+        cin >> m;
+        
+        bitset <32> a1(m);
+        int k = 1;
+        string s = to_string(m);
+        long long m1 = 0;
+        for (int i = s.size()-1; i >= 0; i--){
+            m1 += (s[i] - '0') * k;
+            k *= 16;
+        }
+        
+        bitset <32> a2(m1);
+        cout << a1.count() << ' ' << a2.count() << '\n';
+        
+    }
+    return 0;
+}

@@ -68,3 +68,32 @@ int main() {
 
     return 0; // 程式正常結束
 }
+// https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=13&page=show_problem&problem=1111
+
+//短解
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    long long S, D;
+    while (cin >> S >> D) {
+        // 從 S 開始找右邊界 算梯形公式
+        long long L = S;
+        long long R = 2000000000LL;
+        long long ans = R;
+        while (L <= R) {
+            long long mid = L + (R - L) / 2;
+            long long val = (mid+S) * (mid-S+1) / 2;
+            if (val >= D) {
+                ans = mid;
+                R = mid - 1;
+            } else {
+                L = mid + 1;
+            }
+        }
+        cout << ans << endl;
+    }
+
+    return 0;
+}
