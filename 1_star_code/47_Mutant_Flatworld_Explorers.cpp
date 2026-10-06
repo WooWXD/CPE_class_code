@@ -22,7 +22,7 @@ int main(){
         string d;
         cin >> d;
         int now;
-        if (face == 'E')now = 0;
+        if (face == 'E') now = 0;
         else if (face == 'S') now = 1;
         else if (face == 'W') now = 2;
         else now = 3;
