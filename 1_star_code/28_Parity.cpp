@@ -18,9 +18,12 @@ int main(){
     while (cin >> N){
         if (N == 0) break;
         string s = tobinary(N);
+        // bitset <32> m(N);
+        // int ans_b = m.count();
         int ans = count(s.begin(), s.end(), '1');
         //printf("The parity of %s is %d (mod 2).\n", s, ans);
         cout << "The parity of " << s << " is " << ans << " (mod 2).\n";
+        // cout << "The parity of " << m << " is " << ans_b << " (mod 2).\n";
         //cout << s << ' ' << ans << '\n';
     }
 }
